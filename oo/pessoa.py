@@ -17,10 +17,14 @@ class Pessoa:
     def metodo_de_casse(cls):
         return  f'Método de Classe, retorna classe nome: {cls} e o atrbuto de classe olhos:{cls.olhos}'
 
+#Herança
+class Homem(Pessoa):
+    pass
+
 if __name__ == '__main__':
     jenny = Pessoa(nome='Jenny')
-    bre = Pessoa(nome='Bendon')
-    edi = Pessoa(jenny, bre, nome='Edivaldo', idade=39)
+    bre = Homem(nome='Bendon')
+    edi = Homem(jenny, bre, nome='Edivaldo', idade=39)
     print(edi.cumprimentar())
     print(id(edi))
     print(edi.nome, edi.idade)
@@ -37,3 +41,9 @@ if __name__ == '__main__':
     print(Pessoa.olhos)
     print(Pessoa.metodo_estatico(), edi.metodo_estatico())
     print(Pessoa.metodo_de_casse(), edi.metodo_de_casse())
+    pessoa = Pessoa('Anonimo')
+    print(isinstance(pessoa, Pessoa))
+    print(isinstance(pessoa, Homem))
+    print(isinstance(edi, Pessoa))
+    print(isinstance(edi, Homem))
+    print(edi.olhos)
